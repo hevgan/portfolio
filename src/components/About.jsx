@@ -46,7 +46,7 @@ export default function About() {
             </div>
             <div className="fact">
               <div className="fact__k">Based</div>
-              <div className="fact__v">Gdańsk, Poland<small>Remote / hybrid friendly</small></div>
+              <div className="fact__v">Gdańsk, Poland<small>Hybrid / WFO friendly</small></div>
             </div>
             <div className="fact">
               <div className="fact__k">Years</div>

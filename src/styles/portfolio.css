@@ -185,6 +185,14 @@ body {
   box-shadow: 2px 2px 0 var(--ink);
   text-transform: uppercase;
 }
+/* Ghost variant — no pulsing dot, neutral fill */
+.hero__status--ghost {
+  padding: 5px 11px;
+  background: var(--cream);
+  color: var(--ink);
+}
+.hero__status--ghost::before { content: none; }
+
 .hero__status::before {
   content: "";
   width: 7px; height: 7px;
@@ -205,7 +213,13 @@ body {
   line-height: 0.88;
   margin: 0;
 }
-.hero__title-line { display: block; overflow: hidden; }
+.hero__title-line {
+  display: block;
+  overflow: hidden;
+  /* wipe-up animation needs overflow:hidden but line-height 0.88 clips descenders */
+  padding-bottom: 0.18em;
+  margin-bottom: -0.14em;
+}
 .hero__title-line > span {
   display: inline-block;
   transform: translateY(110%);
@@ -213,6 +227,42 @@ body {
 }
 .hero__title-line:nth-child(2) > span { animation-delay: 0.12s; }
 @keyframes wipeUp { to { transform: translateY(0); } }
+
+/* "(Mac)" nickname inline, sized down */
+.hero__title-aka {
+  font-size: 0.34em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: inherit;
+  vertical-align: 0.55em;
+  margin-left: 0.05em;
+}
+/* Footnote markers — terra accent, sit above cap line */
+.hero__title-mark {
+  font-size: 0.18em;
+  font-weight: 900;
+  color: var(--terra);
+  vertical-align: 0.9em;
+  margin-left: 0.08em;
+  letter-spacing: 0;
+}
+/* Footnote annotations beneath title */
+.hero__name-notes {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--iron);
+}
+.hero__name-notes sup {
+  color: var(--terra);
+  font-weight: 900;
+  margin-right: 2px;
+}
 
 .hero__role {
   font-family: var(--font-mono);
@@ -244,6 +294,7 @@ body {
   box-shadow: 1.5px 1.5px 0 var(--ink);
   display: inline-block;
   white-space: nowrap;
+  margin: 0 4px;
 }
 
 .hero__bottom {
@@ -577,20 +628,20 @@ body {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 138px; top: 12px; bottom: 12px;
+  left: 171px; top: 12px; bottom: 12px;
   width: 2px;
   background: var(--ink);
 }
 .tl-row {
   display: grid;
-  grid-template-columns: 130px 32px 1fr;
+  grid-template-columns: 140px 32px 1fr;
   gap: 16px;
   padding: 24px 0;
   position: relative;
   align-items: start;
 }
 .tl-row + .tl-row { border-top: 1.5px solid var(--ink); }
-.tl-when { font-family: var(--font-mono); font-size: 11px; font-weight: 800; letter-spacing: 0.4px; color: var(--iron); padding-top: 6px; text-align: right; white-space: nowrap; }
+.tl-when { font-family: var(--font-mono); font-size: 11px; font-weight: 800; letter-spacing: 0.4px; color: var(--iron); padding-top: 6px; text-align: right; white-space: nowrap; padding-right: 14px; font-variant-numeric: tabular-nums; }
 .tl-when small { display: block; font-weight: 700; color: var(--iron-mid); margin-top: 3px; font-size: 10px; }
 .tl-node {
   width: 16px; height: 16px;

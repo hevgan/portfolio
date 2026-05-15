@@ -4,8 +4,9 @@ export default function Hero() {
   return (
     <section id="top" className="hero">
       <div className="hero__meta">
-        <span className="hero__status">Open to work · contract</span>
-        <span>POL · GDA<span style={{ opacity: 0.5 }}>ŃSK</span></span>
+        <span className="hero__status">Open to work</span>
+        <span className="hero__status hero__status--ghost">Contract</span>
+        <span>POLAND · GDAŃSK</span>
         <span style={{ opacity: 0.5 }}>·</span>
         <span>UTC+1</span>
       </div>
@@ -13,9 +14,21 @@ export default function Hero() {
       <div>
         <div className="hero__role">Data Engineer · v4.0</div>
         <h1 className="hero__title">
-          <div className="hero__title-line"><span>Maciej</span></div>
-          <div className="hero__title-line"><span>Adryan.</span></div>
+          <div className="hero__title-line">
+            <span>
+              Maciej{" "}
+              <span className="hero__title-aka">(Mac)</span>
+              <sup className="hero__title-mark">*</sup>
+            </span>
+          </div>
+          <div className="hero__title-line">
+            <span>Adryan<sup className="hero__title-mark">†</sup>.</span>
+          </div>
         </h1>
+        <div className="hero__name-notes">
+          <span><sup>*</sup> "Mac" for short.</span>
+          <span><sup>†</sup> "Adryan", with a "y".</span>
+        </div>
       </div>
 
       <Reveal delay={0.3}>
