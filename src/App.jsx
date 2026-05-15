@@ -66,7 +66,7 @@ export default function App() {
       <Projects motion={t.motion} />
       <TechStack />
       <Experience />
-      <OpenSource />
+      {/* <OpenSource /> */}{/* 05 hidden — uncomment to restore */}
       <Contact />
       <Footer />
 

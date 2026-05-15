@@ -196,6 +196,7 @@ body {
   padding: 5px 11px;
   background: var(--cream);
   color: var(--ink);
+  justify-content: center;
 }
 .hero__status--ghost::before { content: none; }
 
@@ -225,11 +226,12 @@ body {
   margin-bottom: -0.14em;
 }
 .hero__title-line:last-child { margin-bottom: 0; }
-/* overflow container: clips text during animation, padding allows descenders */
+/* overflow container: clips text during animation, padding allows descenders + ink overflow */
 .hero__title-clip {
   overflow: hidden;
-  padding-bottom: 0.28em;
-  margin-bottom: -0.28em;
+  padding-bottom: 0.55em;
+  margin-bottom: -0.55em;
+  padding-right: 0.15em;
 }
 /* animated text span */
 .hero__title-clip > span {
@@ -270,7 +272,7 @@ body {
 }
 /* Footnote annotations beneath title */
 .hero__name-notes {
-  margin-top: 18px;
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 20px;
