@@ -80,8 +80,9 @@ export function NumberTicker({ value, suffix = '', duration = 1400, motion }) {
 
 export function SqlTyper({ lines, motion }) {
   const [shown, setShown] = useState(
-    motion === false ? lines.map((l) => l.length) : lines.map(() => 0)
+    motion === false ? lines.map((l) => l.text.length) : lines.map(() => 0)
   );
+  const [cursorLine, setCursorLine] = useState(-1);
   const ref = useRef(null);
   const inView = useInView(ref, 0.3);
 
@@ -90,7 +91,7 @@ export function SqlTyper({ lines, motion }) {
     if (!inView) return;
     let li = 0, ci = 0, timer;
     const step = () => {
-      if (li >= lines.length) return;
+      if (li >= lines.length) { setCursorLine(-1); return; }
       ci++;
       setShown((prev) => {
         const next = [...prev];
@@ -98,14 +99,17 @@ export function SqlTyper({ lines, motion }) {
         return next;
       });
       if (ci >= lines[li].text.length) {
+        setCursorLine(-1); // hide cursor during inter-line pause
         li++; ci = 0;
         timer = setTimeout(step, 220);
       } else {
+        setCursorLine(li);
         timer = setTimeout(step, 22 + Math.random() * 30);
       }
     };
+    setCursorLine(-1);
     timer = setTimeout(step, 300);
-    return () => clearTimeout(timer);
+    return () => { clearTimeout(timer); setCursorLine(-1); };
   }, [inView, motion]);
 
   return (
@@ -117,7 +121,7 @@ export function SqlTyper({ lines, motion }) {
               ? <span key={j} className="k">{part}</span>
               : <span key={j}>{part}</span>
           ))}
-          {i === shown.findIndex((s, idx) => s > 0 && s < lines[idx].text.length) && motion !== false && (
+          {i === cursorLine && motion !== false && (
             <span className="cursor" />
           )}
         </div>

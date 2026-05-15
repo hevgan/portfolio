@@ -6,9 +6,9 @@ const links = [
     v: 'linkedin.com/in/maciej-adryan',
     href: 'https://www.linkedin.com/in/maciej-adryan/',
   },
-  { k: 'Email', v: 'hello@maciej.dev', href: 'mailto:hello@maciej.dev' },
-  { k: 'GitHub', v: 'github.com/maciej-adryan', href: '#' },
-  { k: 'Résumé', v: 'PDF · one page · honest', href: '#' },
+  { k: 'Email', v: 'software@adryanmaciej.com', href: 'mailto:software@adryanmaciej.com' },
+  { k: 'GitHub', v: 'github.com/hevgan', href: 'https://github.com/hevgan' },
+  { k: 'Résumé', v: 'PDF · one page · honest', href: '/cv.pdf', download: true },
 ];
 
 export default function Contact() {
@@ -37,7 +37,7 @@ export default function Contact() {
         <Reveal delay={0.15}>
           <div className="contact__links">
             {links.map((l) => (
-              <a key={l.k} className="contact__link" href={l.href} target="_blank" rel="noopener noreferrer">
+              <a key={l.k} className="contact__link" href={l.href} target="_blank" rel="noopener noreferrer" {...(l.download ? { download: true } : {})}>
                 <div>
                   <div className="k">{l.k}</div>
                   {l.v}
