@@ -176,6 +176,7 @@ body {
 .hero__status {
   display: inline-flex;
   align-items: center;
+  line-height: 1;
   gap: 8px;
   padding: 5px 11px 5px 10px;
   background: var(--terra);
@@ -239,11 +240,11 @@ body {
 }
 /* Footnote markers — terra accent, sit above cap line */
 .hero__title-mark {
-  font-size: 0.18em;
+  font-size: 0.2em;
   font-weight: 900;
   color: var(--terra);
-  vertical-align: middle;
-  margin-left: 0.08em;
+  vertical-align: 0.7em;
+  margin-left: 0.06em;
   letter-spacing: 0;
 }
 /* Footnote annotations beneath title */
@@ -654,7 +655,21 @@ body {
   justify-self: center;
   box-shadow: 1.5px 1.5px 0 var(--ink);
 }
-.tl-row:first-child .tl-node { background: var(--terra); }
+.tl-row:first-child .tl-node {
+  background: var(--terra);
+}
+.tl-row:first-child .tl-node::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--terra);
+  animation: nodeRing calc(2s / var(--motion, 1)) ease-out infinite;
+}
+@keyframes nodeRing {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
 .tl-body { display: flex; flex-direction: column; gap: 6px; }
 .tl-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
 .tl-role { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; margin: 0; }
@@ -778,7 +793,7 @@ body {
   .tl-body { grid-column: 2; }
 }
 @media (max-width: 600px) {
-  .hero { padding-top: 70px; }
+  .hero { padding-top: 52px; gap: 20px; }
   .pipeline { font-size: 9px; padding: 10px 12px; }
   .pipeline__node { padding: 6px 2px; }
 }
