@@ -8,7 +8,7 @@ const links = [
   },
   { k: 'Email', v: 'software@adryanmaciej.com', href: 'mailto:software@adryanmaciej.com' },
   { k: 'GitHub', v: 'github.com/hevgan', href: 'https://github.com/hevgan' },
-  { k: 'Résumé', v: 'PDF · one page · honest', href: 'https://github.com/hevgan/portfolio/releases/download/v1.0/Maciej_Adryan_CV.pdf', download: true },
+  { k: 'Résumé', v: 'PDF · one page · honest', href: '/cv' },
 ];
 
 export default function Contact() {
