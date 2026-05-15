@@ -117,7 +117,7 @@ export function SqlTyper({ lines, motion }) {
               ? <span key={j} className="k">{part}</span>
               : <span key={j}>{part}</span>
           ))}
-          {i === shown.findIndex((s, idx) => s < lines[idx].text.length) && motion !== false && (
+          {i === shown.findIndex((s, idx) => s > 0 && s < lines[idx].text.length) && motion !== false && (
             <span className="cursor" />
           )}
         </div>
