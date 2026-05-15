@@ -68,6 +68,11 @@ body {
 }
 .section + .section { padding-top: 0; }
 .section--bordered { border-top: 2px solid var(--ink); padding-top: var(--pad-section); }
+/* consecutive bordered sections: previous bottom already provides spacing, just add breathing room after border */
+.section + .section.section--bordered { padding-top: calc(var(--pad-section) * 0.4); }
+
+/* 01/About: same reduced top (not preceded by .section, so needs explicit override) */
+#about.section--bordered { padding-top: calc(var(--pad-section) * 0.4); }
 
 .eyebrow-row {
   display: flex;
@@ -215,18 +220,20 @@ body {
   margin: 0;
 }
 .hero__title-line {
-  display: block;
-  overflow: hidden;
-  /* wipe-up animation needs overflow:hidden but line-height 0.88 clips descenders */
+  display: flex;
+  align-items: flex-start;
+  /* no overflow:hidden here — marks must not be clipped */
   padding-bottom: 0.18em;
   margin-bottom: -0.14em;
 }
-.hero__title-line > span {
-  display: inline-block;
+/* clip animation only on the text word span, not the whole line */
+.hero__title-line > span:first-child {
+  display: block;
+  overflow: hidden;
   transform: translateY(110%);
   animation: wipeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
-.hero__title-line:nth-child(2) > span { animation-delay: 0.12s; }
+.hero__title-line:nth-child(2) > span:first-child { animation-delay: 0.12s; }
 @keyframes wipeUp { to { transform: translateY(0); } }
 
 /* "(Mac)" nickname inline, sized down */
@@ -243,9 +250,19 @@ body {
   font-size: 0.2em;
   font-weight: 900;
   color: var(--terra);
-  vertical-align: 0.7em;
-  margin-left: 0.06em;
+  margin-top: 0.35em;
+  margin-left: -0.1em;
   letter-spacing: 0;
+  line-height: 1;
+  opacity: 0;
+  animation: markPop 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) 0.26s forwards;
+}
+.hero__title-line:nth-child(2) .hero__title-mark {
+  animation-delay: 0.33s;
+}
+@keyframes markPop {
+  from { opacity: 0; transform: translateY(-4px) scale(0.6); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
 }
 /* Footnote annotations beneath title */
 .hero__name-notes {
@@ -258,6 +275,12 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--iron);
+  opacity: 0;
+  animation: notesFadeUp 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
+}
+@keyframes notesFadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .hero__name-notes sup {
   color: var(--terra);
@@ -793,7 +816,7 @@ body {
   .tl-body { grid-column: 2; }
 }
 @media (max-width: 600px) {
-  .hero { padding-top: 52px; gap: 20px; }
+  .hero { padding-top: 72px; gap: 20px; justify-content: flex-start; min-height: unset; }
   .pipeline { font-size: 9px; padding: 10px 12px; }
   .pipeline__node { padding: 6px 2px; }
 }
