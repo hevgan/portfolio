@@ -1,0 +1,126 @@
+/* ============================================================
+   Hardstock Design System — Foundation Tokens
+   Material honesty. Typographic weight. Offset shadows.
+   ============================================================ */
+
+:root {
+  /* ---------- Color tokens ---------- */
+  --cream:        #fffbef;
+  --ink:          #1d1929;
+  --terra:        #b5674a;
+  --iron:         #84888a;
+  --terra-light:  #f0ddd6;
+  --iron-light:   #dfe1e2;
+  --iron-mid:     #a0a4a6;
+  --error:        #a03030;
+
+  /* Semantic mappings */
+  --fg:           var(--ink);
+  --fg-muted:     var(--iron-mid);
+  --fg-on-dark:   var(--cream);
+  --bg:           var(--cream);
+  --bg-warm:      var(--terra-light);
+  --bg-cool:      var(--iron-light);
+  --border-color: var(--ink);
+
+  /* ---------- Borders ---------- */
+  --border-thin:  1.5px solid var(--ink);
+  --border:       2px solid var(--ink);
+  --border-thick: 2.5px solid var(--ink);
+
+  /* ---------- Radii ---------- */
+  --radius-sm:    4px;
+  --radius-md:    6px;
+  --radius-lg:    8px;
+  --radius-xl:    10px;
+
+  /* ---------- Offset shadows (no blur, always ink) ---------- */
+  --shadow-xs:    1.5px 1.5px 0 var(--ink);
+  --shadow-sm:    2px 2px 0 var(--ink);
+  --shadow-md:    3px 3px 0 var(--ink);
+  --shadow-lg:    4px 4px 0 var(--ink);
+  --shadow-focus: 2px 2px 0 var(--terra);
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ---------- Typography ---------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs:    11px;
+  --text-sm:    12px;
+  --text-base:  13px;
+  --text-md:    14px;
+  --text-lg:    18px;
+  --text-xl:    24px;
+  --text-2xl:   32px;
+  --text-3xl:   40px;
+  --text-4xl:   52px;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semi:     600;
+  --weight-bold:     700;
+  --weight-heavy:    800;
+  --weight-black:    900;
+
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.45;
+  --leading-relaxed: 1.6;
+
+  /* ---------- Motion ---------- */
+  --press: 0.1s;
+  --fade:  0.15s;
+}
+
+html, body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--ink);
+  line-height: var(--leading-tight);
+}
+
+h1 { font-size: var(--text-4xl); font-weight: var(--weight-black); letter-spacing: -2px; }
+h2 { font-size: var(--text-3xl); font-weight: var(--weight-heavy); letter-spacing: -1.5px; }
+h3 { font-size: var(--text-2xl); font-weight: var(--weight-heavy); letter-spacing: -1px; }
+h4 { font-size: var(--text-xl);  font-weight: var(--weight-heavy); letter-spacing: -0.5px; }
+h5 { font-size: var(--text-lg);  font-weight: var(--weight-heavy); letter-spacing: -0.5px; }
+h6 { font-size: var(--text-md);  font-weight: var(--weight-heavy); }
+
+p { margin: 0; font-size: var(--text-base); font-weight: var(--weight-regular); line-height: var(--leading-normal); }
+
+small, .meta { font-size: var(--text-xs); font-weight: var(--weight-bold); color: var(--iron-mid); }
+
+.eyebrow, .label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ink);
+}
+
+code, pre, kbd { font-family: var(--font-mono); font-size: 12px; color: var(--ink); }
+
+a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+a:hover { color: var(--terra); }
+
+::selection { background: var(--terra); color: var(--cream); }
