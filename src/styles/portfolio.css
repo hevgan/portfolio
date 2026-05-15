@@ -242,7 +242,7 @@ body {
   font-size: 0.18em;
   font-weight: 900;
   color: var(--terra);
-  vertical-align: 0.9em;
+  vertical-align: middle;
   margin-left: 0.08em;
   letter-spacing: 0;
 }
@@ -778,7 +778,7 @@ body {
   .tl-body { grid-column: 2; }
 }
 @media (max-width: 600px) {
-  .hero { padding-top: 110px; }
+  .hero { padding-top: 70px; }
   .pipeline { font-size: 9px; padding: 10px 12px; }
   .pipeline__node { padding: 6px 2px; }
 }
