@@ -222,18 +222,22 @@ body {
 .hero__title-line {
   display: flex;
   align-items: flex-start;
-  /* no overflow:hidden here — marks must not be clipped */
-  padding-bottom: 0.18em;
   margin-bottom: -0.14em;
 }
-/* clip animation only on the text word span, not the whole line */
-.hero__title-line > span:first-child {
-  display: block;
+.hero__title-line:last-child { margin-bottom: 0; }
+/* overflow container: clips text during animation, padding allows descenders */
+.hero__title-clip {
   overflow: hidden;
+  padding-bottom: 0.28em;
+  margin-bottom: -0.28em;
+}
+/* animated text span */
+.hero__title-clip > span {
+  display: block;
   transform: translateY(110%);
   animation: wipeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
-.hero__title-line:nth-child(2) > span:first-child { animation-delay: 0.12s; }
+.hero__title-line:nth-child(2) .hero__title-clip > span { animation-delay: 0.12s; }
 @keyframes wipeUp { to { transform: translateY(0); } }
 
 /* "(Mac)" nickname inline, sized down */

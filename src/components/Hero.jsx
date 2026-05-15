@@ -15,11 +15,15 @@ export default function Hero() {
         <div className="hero__role">Data Engineer · v4.0</div>
         <h1 className="hero__title">
           <div className="hero__title-line">
-            <span>Maciej{" "}<span className="hero__title-aka">(Mac)</span></span>
+            <div className="hero__title-clip">
+              <span>Maciej{" "}<span className="hero__title-aka">(Mac)</span></span>
+            </div>
             <sup className="hero__title-mark">*</sup>
           </div>
           <div className="hero__title-line">
-            <span>Adryan.</span>
+            <div className="hero__title-clip">
+              <span>Adryan.</span>
+            </div>
             <sup className="hero__title-mark">‡</sup>
           </div>
         </h1>
