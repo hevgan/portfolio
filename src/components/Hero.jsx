@@ -22,12 +22,12 @@ export default function Hero() {
             </span>
           </div>
           <div className="hero__title-line">
-            <span>Adryan<sup className="hero__title-mark">†</sup>.</span>
+            <span>Adryan<sup className="hero__title-mark">‡</sup>.</span>
           </div>
         </h1>
         <div className="hero__name-notes">
           <span><sup>*</sup> "Mac" for short.</span>
-          <span><sup>†</sup> "Adryan", with a "y".</span>
+          <span><sup>‡</sup> "Adryan", with a "y".</span>
         </div>
       </div>
 
