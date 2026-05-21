@@ -365,6 +365,59 @@ body {
 }
 
 /* Pipeline diagram */
+/* ── Pipeline Monitor ───────────────────────────────────────── */
+.monitor {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 0;
+  max-width: 480px;
+  width: 100%;
+}
+.monitor__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 14px;
+  border-bottom: 1.5px solid var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+.monitor__live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: #6fdb8a;
+  letter-spacing: 0.6px;
+}
+.monitor__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #6fdb8a;
+  animation: pulse calc(1.8s / var(--motion, 1)) infinite;
+}
+.monitor__rows { padding: 4px 0; }
+.monitor__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 5px 14px;
+  letter-spacing: 0.3px;
+  color: var(--ink);
+}
+.monitor__row + .monitor__row { border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); }
+.monitor__name { font-weight: 600; color: var(--iron); }
+.monitor__status { font-weight: 800; white-space: nowrap; }
+.monitor__row--ok .monitor__status { color: var(--ink); opacity: 0.5; }
+.monitor__row--running .monitor__status { color: var(--terra); }
+.monitor__row--running .monitor__name { color: var(--ink); }
+.monitor__time { opacity: 0.5; white-space: nowrap; text-align: right; }
+
 .pipeline {
   position: relative;
   display: grid;
