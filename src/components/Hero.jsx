@@ -35,9 +35,10 @@ export default function Hero() {
 
       <Reveal delay={0.3}>
         <p className="hero__bio">
-          I move data from <em>where it is</em> to <em>where it needs to be</em>.
-          Mostly without anyone noticing. Four years of pipelines, warehouses,
-          and explaining what an idempotent retry is.
+          I build data infrastructure that <em>ships and stays shipped</em>.
+          Four years of production pipelines, warehouse migrations, and AWS
+          Step Functions at companies where downtime is not an option.
+          The systems run. The teams sleep.
         </p>
       </Reveal>
 

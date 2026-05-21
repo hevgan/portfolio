@@ -28,9 +28,9 @@ export default function Projects({ motion }) {
                 <span className="project__year">2024 — now</span>
               </div>
               <p className="project__desc">
-                Merging two high-revenue data platforms into one. Modular
-                AWS Step Functions, vendor-shaped components, one shared
-                contract at the seams.
+                Unifying two high-revenue enterprise data platforms under one
+                modular architecture. Vendor-shaped Step Function components,
+                single shared contract at the seams. Zero downtime tolerance.
               </p>
               <div className="project__metric">
                 → <NumberTicker value={2} motion={motion} /> platforms unified
@@ -62,9 +62,9 @@ export default function Projects({ motion }) {
                 <span className="project__year">2022 — 2023</span>
               </div>
               <p className="project__desc">
-                Migrated 90+ databases to the cloud and rearchitected the
-                trade-data flow underneath them. The kind of project where the
-                win is measured in pages you didn't get at night.
+                Migrated 90+ production databases to the cloud with zero data
+                loss. Rearchitected the entire trade-data flow underneath them.
+                Cut end-to-end runtime by 85%. Shipped on schedule.
               </p>
               <div className="project__metric">
                 → <NumberTicker value={90} suffix="+" motion={motion} /> DBs migrated
@@ -100,9 +100,9 @@ export default function Projects({ motion }) {
                 <span className="project__year">side · 2025</span>
               </div>
               <p className="project__desc">
-                A tiny internal tool that watches DAG runtimes and yells when
-                p95 drifts. Six SQL queries, one Slack webhook, one fewer
-                meeting per week.
+                Built and deployed a DAG runtime monitor over a weekend. Watches
+                p95 drift, alerts before incidents surface. Six SQL queries, one
+                Slack webhook, one fewer weekly incident review.
               </p>
               <div className="project__metric">
                 → <NumberTicker value={1} motion={motion} /> meeting saved · weekly
@@ -135,12 +135,13 @@ export default function Projects({ motion }) {
                 <span className="project__year">2021 — 2022</span>
               </div>
               <p className="project__desc">
-                Intel internship. Automated a hardware performance framework
-                using Dash and a lot of caffeine. Replaced a slide deck with a
-                live dashboard the team actually looked at.
+                Intel internship. Replaced a static slide deck with a live
+                hardware performance dashboard. Automated the entire reporting
+                workflow — data collection to visualization. The team switched
+                to it immediately.
               </p>
               <div className="project__metric">
-                → first time I shipped <NumberTicker value={1} motion={motion} /> real thing
+                → automated reporting for entire hardware validation team
               </div>
               <div className="project__tags">
                 <span className="tag">Python</span>

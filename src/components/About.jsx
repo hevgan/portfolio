@@ -12,28 +12,26 @@ export default function About() {
         <div>
           <Reveal>
             <h2 className="about__lead">
-              I'm a data engineer based in Gdańsk. Currently shipping
-              modular AWS pipelines at <em>S&amp;P Global</em>.
+              Data engineer who designs systems <em>built to last</em>.
+              Currently leading pipeline architecture at <em>S&amp;P Global</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="about__body">
             <p>
-              I started writing SQL because the alternative was a spreadsheet
-              with seventeen tabs and one increasingly fragile VLOOKUP. I kept
-              doing it because there's a specific satisfaction to a job that
-              runs at 3 AM and is still running correctly at 6 AM and nobody
-              has to think about it.
+              I've migrated 90+ production databases, cut job runtimes by 85%,
+              and shipped a modular Step Functions framework that two enterprise
+              data platforms now run on. The work is invisible when it's done
+              right — and that's the point.
             </p>
             <p>
-              Day-to-day I'm in AWS Step Functions, Snowflake, .NET, and a fair
-              amount of YAML I'd rather not be in. I like systems that are
-              boring on purpose — observable, idempotent, and explained in a
-              README somebody under stress can read.
+              Stack: AWS Step Functions, Snowflake, Python, .NET. I build
+              systems that are observable, fault-tolerant, and documented well
+              enough that on-call at 3 AM doesn't require a phone call. If
+              something breaks, it logs why — and retries correctly.
             </p>
             <p>
-              Off the clock I'm a fast learner, slow runner, and a strong
-              believer that the best dashboard is the one nobody opens because
-              nothing is on fire.
+              Available for contract or full-time. I ramp fast, write docs
+              worth reading, and leave codebases better than I found them.
             </p>
           </Reveal>
         </div>
@@ -50,11 +48,15 @@ export default function About() {
             </div>
             <div className="fact">
               <div className="fact__k">Years</div>
-              <div className="fact__v">4+<small>since the Intel internship</small></div>
+              <div className="fact__v">4+<small>pipelines · warehouses · migrations</small></div>
             </div>
             <div className="fact">
               <div className="fact__k">Stack</div>
               <div className="fact__v">AWS · Snowflake · Python · .NET<small>and the YAML that connects it</small></div>
+            </div>
+            <div className="fact">
+              <div className="fact__k">Lang</div>
+              <div className="fact__v">Polish · English<small>native · professional proficiency</small></div>
             </div>
             <div className="fact">
               <div className="fact__k">Status</div>
