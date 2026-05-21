@@ -130,39 +130,6 @@ export function SqlTyper({ lines, motion }) {
   );
 }
 
-export function LiveClock() {
-  const [time, setTime] = useState('');
-  useEffect(() => {
-    const tick = () => {
-      const d = new Date();
-      // UTC+1: add local offset + 60 min
-      const utc1 = new Date(d.getTime() + (d.getTimezoneOffset() + 60) * 60000);
-      setTime(utc1.toTimeString().slice(0, 8) + ' UTC+1');
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return <span>{time}</span>;
-}
-
-export function LiveTenure({ from, label }) {
-  const [val, setVal] = useState('');
-  useEffect(() => {
-    const tick = () => {
-      const ms = Date.now() - new Date(from).getTime();
-      const days = Math.floor(ms / 86400000);
-      const mo = Math.floor(days / 30.44);
-      const d = Math.floor(days % 30.44);
-      setVal(`${label} · ${mo}mo ${d}d`);
-    };
-    tick();
-    const id = setInterval(tick, 60000);
-    return () => clearInterval(id);
-  }, [from, label]);
-  return <span>{val}</span>;
-}
-
 export function useScrolled(threshold = 40) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {

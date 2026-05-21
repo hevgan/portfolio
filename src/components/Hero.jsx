@@ -1,5 +1,4 @@
-import { Reveal, LiveClock, LiveTenure } from './helpers';
-import PipelineMonitor from './PipelineMonitor';
+import { Reveal } from './helpers';
 
 export default function Hero() {
   return (
@@ -9,9 +8,7 @@ export default function Hero() {
         <span className="hero__status hero__status--ghost">Contract</span>
         <span>POLAND · GDAŃSK</span>
         <span style={{ opacity: 0.5 }}>·</span>
-        <LiveClock />
-        <span style={{ opacity: 0.5 }}>·</span>
-        <LiveTenure from="2024-10-01" label="S&amp;P Global" />
+        <span>UTC+1</span>
       </div>
 
       <div>
@@ -50,7 +47,13 @@ export default function Hero() {
           <span className="hero__scroll-arrow">↓</span>
         </a>
 
-        <PipelineMonitor />
+        <div className="pipeline" aria-hidden="true">
+          <div className="pipeline__node pipeline__node--source">vendor</div>
+          <div className="pipeline__edge" />
+          <div className="pipeline__node">transform</div>
+          <div className="pipeline__edge" />
+          <div className="pipeline__node pipeline__node--sink">warehouse</div>
+        </div>
       </Reveal>
     </section>
   );

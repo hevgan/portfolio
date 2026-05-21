@@ -1,7 +1,5 @@
 import { Reveal } from './helpers';
 
-const yearsExp = Math.floor((Date.now() - new Date('2021-07-01')) / (365.25 * 86400000));
-
 export default function About() {
   return (
     <section id="about" className="section section--bordered">
@@ -52,7 +50,7 @@ export default function About() {
             </div>
             <div className="fact">
               <div className="fact__k">Years</div>
-              <div className="fact__v">{yearsExp}+<small>since the Intel internship</small></div>
+              <div className="fact__v">4+<small>since the Intel internship</small></div>
             </div>
             <div className="fact">
               <div className="fact__k">Stack</div>
