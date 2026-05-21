@@ -111,7 +111,6 @@ body {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 18px 32px;
   background: color-mix(in srgb, var(--cream) 75%, transparent);
   border-bottom: 1.5px solid color-mix(in srgb, var(--ink) 0%, transparent);
@@ -143,6 +142,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  margin-left: auto;
 }
 .nav__link {
   color: var(--ink);
@@ -153,6 +153,25 @@ body {
 }
 .nav__link:hover { color: var(--terra); }
 .nav__num { color: var(--iron-mid); margin-right: 4px; }
+.nav__theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  margin-left: 8px;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  color: var(--ink);
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+.nav__theme-toggle:hover {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
 
 /* ============================================================
    HERO
@@ -262,10 +281,10 @@ body {
   letter-spacing: 0;
   line-height: 1;
   opacity: 0;
-  animation: markPop 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) 0.26s forwards;
+  animation: markPop 0.33s cubic-bezier(0.2, 0.7, 0.2, 1) 1.26s forwards;
 }
 .hero__title-line:nth-child(2) .hero__title-mark {
-  animation-delay: 0.33s;
+  animation-delay: 2.1s;
 }
 @keyframes markPop {
   from { opacity: 0; transform: translateY(-4px) scale(0.6); }
@@ -282,9 +301,13 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--iron);
-  opacity: 0;
-  animation: notesFadeUp 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
 }
+.hero__name-notes span {
+  opacity: 0;
+  animation: notesFadeUp 0.44s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.hero__name-notes span:first-child { animation-delay: 1.26s; }
+.hero__name-notes span:last-child  { animation-delay: 2.1s; }
 @keyframes notesFadeUp {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -9,14 +9,26 @@ import Experience from './components/Experience';
 import OpenSource from './components/OpenSource';
 import Contact from './components/Contact';
 
+const STORAGE_KEY = 'portfolio.theme';
+const VALID_THEMES = ['light', 'dark'];
+
+function getSavedTheme() {
+  try {
+    const v = localStorage.getItem(STORAGE_KEY);
+    return VALID_THEMES.includes(v) ? v : 'light';
+  } catch {
+    return 'light';
+  }
+}
+
 const TWEAK_DEFAULTS = {
-  theme: 'light',
+  theme: getSavedTheme(),
   density: 'comfy',
   motion: true,
   accent: '#b5674a',
 };
 
-function Nav() {
+function Nav({ theme, onThemeToggle }) {
   const scrolled = useScrolled(60);
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
@@ -31,6 +43,13 @@ function Nav() {
         <a className="nav__link" href="#experience"><span className="nav__num">04</span>CV</a>
         <a className="nav__link" href="#contact"><span className="nav__num">06</span>Contact</a>
       </div>
+      <button
+        className="nav__theme-toggle"
+        onClick={onThemeToggle}
+        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        {theme === 'dark' ? '☀' : '☾'}
+      </button>
     </nav>
   );
 }
@@ -53,6 +72,7 @@ export default function App() {
     html.setAttribute('data-density', t.density);
     html.setAttribute('data-motion', t.motion ? 'on' : 'off');
     html.style.setProperty('--terra', t.accent);
+    try { localStorage.setItem(STORAGE_KEY, t.theme); } catch {}
   }, [t.theme, t.density, t.motion, t.accent]);
 
   useReveal();
@@ -60,7 +80,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="bp-grid" aria-hidden="true" />
-      <Nav />
+      <Nav theme={t.theme} onThemeToggle={() => setTweak('theme', t.theme === 'dark' ? 'light' : 'dark')} />
       <Hero />
       <About />
       <Projects motion={t.motion} />
